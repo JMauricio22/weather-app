@@ -5,11 +5,14 @@ import { Row, Col, ProgressBar } from "react-bootstrap";
 export default function Hightlights({ weather }) {
   return (
     <section className='container mb-5'>
-      <h2 className='ms-3 display-6 fw-normal'>Today's highlights</h2>
+      <h2 className='ms-3 display-6 fw-normal mb-4'>Today's highlights</h2>
       <div className='container'>
         <Row>
-          <Col xs={12}>
-            <div className='bg-primary mt-4 p-4 text-center mb-4'>
+          <Col xs={12} md={6} lg={6}>
+            <div
+              className='bg-primary mt-lg-0 p-4 text-center mb-4'
+              style={{ height: 264 }}
+            >
               <p className='display-6 fs-normal'>Wind Status</p>
               <p className='display-1'>
                 {Number(weather.wind_speed).toFixed(2)} mph
@@ -17,8 +20,11 @@ export default function Hightlights({ weather }) {
               <p>WSW</p>
             </div>
           </Col>
-          <Col xs={12}>
-            <div className='bg-primary p-4 text-center mb-4 '>
+          <Col xs={12} md={6} lg={6}>
+            <div
+              className='bg-primary p-4 text-center mb-4'
+              style={{ height: 264 }}
+            >
               <p className='display-6 fs-normal'>Humidity</p>
               <p className='display-1'>
                 {Number(weather.humidity).toFixed(0)}%
@@ -28,7 +34,7 @@ export default function Hightlights({ weather }) {
               </div>
             </div>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} md={6} lg={6}>
             <div className='bg-primary p-4 text-center mb-4 '>
               <p className='display-6 fs-normal'>Visibility</p>
               <p className='display-1'>
@@ -36,7 +42,7 @@ export default function Hightlights({ weather }) {
               </p>
             </div>
           </Col>
-          <Col xs={12}>
+          <Col xs={12} md={6} lg={6}>
             <div className='bg-primary p-4 text-center mb-4 '>
               <p className='display-6 fs-normal'>Air Presure</p>
               <p className='display-1'>

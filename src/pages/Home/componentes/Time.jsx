@@ -5,7 +5,7 @@ import { imagesMapper } from "../utils/imagesMapper";
 
 export default function Time({ currentWeather, title }) {
   return (
-    <section className='bg-primary ps-3 pe-3 pt-3 pb-5'>
+    <section className='ps-3 pe-3 pt-3 pb-5 h-lg-100'>
       <Row>
         <Col xs={12} className='mb-5'>
           <Button variant='secondary'>Search for places</Button>
