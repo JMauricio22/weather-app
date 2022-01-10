@@ -24,7 +24,9 @@ export default function Time({ currentWeather, title }) {
             {" "}
             {Number(currentWeather.the_temp).toFixed(2)} °C
           </p>
-          <p className='fs-2 fw-bold'>{currentWeather.weather_state_name}</p>
+          <p className='display-6 fw-bold'>
+            {currentWeather.weather_state_name}
+          </p>
           <p className='fs-6 text-secondary'>
             Today -{" "}
             {new Date().toLocaleDateString("en-GB", {

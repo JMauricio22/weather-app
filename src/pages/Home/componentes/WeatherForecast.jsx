@@ -6,10 +6,10 @@ import { imagesMapper } from "../utils/imagesMapper";
 export default function WeatherForecast({ weather }) {
   return (
     <div
-      className='bg-primary px-3 py-4 mt-4 mx-md-auto'
-      style={{ width: 118 }}
+      className='bg-primary px-3 py-4 mt-4 mx-sm-auto mx-auto mx-lg-1'
+      style={{ width: 120 }}
     >
-      <p className='text-center'>
+      <p className='text-center fs-6'>
         {new Date(weather.applicable_date).toLocaleDateString("en-GB", {
           weekday: "short",
           day: "numeric",
@@ -18,7 +18,7 @@ export default function WeatherForecast({ weather }) {
       </p>
       <div className='d-flex justify-content-center my-3'>
         <Image
-          style={{ width: 50, height: 50 }}
+          style={{ width: 50, height: 60 }}
           src={imagesMapper[weather.weather_state_abbr]}
           alt=''
           fluid={true}
