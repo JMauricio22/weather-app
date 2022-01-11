@@ -1,0 +1,17 @@
+.search-menu {
+  transition: all 0.3s ease-out;
+  transform: translateX(-100%);
+}
+.slide-in-left {
+  transform: translateX(0);
+}
+.times {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+}

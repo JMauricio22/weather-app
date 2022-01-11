@@ -1,0 +1,12 @@
+.place-btn {
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.place-btn:hover {
+  border-color: gray;
+}
+.place-btn:hover span:nth-child(2):after {
+  content: "\2B9E";
+}

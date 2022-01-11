@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Image } from "react-bootstrap";
-import { imagesMapper } from "../utils/imagesMapper";
+import { imagesMapper } from "../pages/Home/utils/imagesMapper";
 
 export default function WeatherForecast({ weather }) {
   return (

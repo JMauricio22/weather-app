@@ -57,7 +57,7 @@ export default function Hightlights({ weather }) {
             <div className='bg-primary p-4 text-center mb-4 '>
               <p className='fs-5 fw-lighter'>Visibility</p>
               <p className='display-2'>
-                {Number(weather.visibility).toFixed(1)} miles
+                {Number(weather.visibility).toFixed(0)} miles
               </p>
             </div>
           </Col>

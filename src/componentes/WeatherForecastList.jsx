@@ -22,8 +22,9 @@ export default function WeatherForecastList({ forecast }) {
               offset: 0,
             }}
             className='gx-2'
+            key={weather.id}
           >
-            <WeatherForecast weather={weather} key={weather.id} />
+            <WeatherForecast weather={weather} />
           </Col>
         ))}
       </Row>
