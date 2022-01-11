@@ -6,6 +6,7 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { imagesMapper } from "../../utils/imagesMapper";
 import Menu from "../SearchMenu/Index";
 import DefaultSearchItem from "../DefaultSearchItem/Index";
+import convertCelsiusToFahrenheit from "../../utils/convertCelsiusToFahrenheit";
 
 const defaultCitites = [
   {
@@ -22,6 +23,7 @@ export default function Time({
   showMenu,
   toggleSearchMenu,
   onChangeLocation,
+  isCelsius,
 }) {
   return (
     <section className='h-lg-100 position-relative'>
@@ -53,7 +55,11 @@ export default function Time({
           <Col className='text-center'>
             <p className='display-1'>
               {" "}
-              {Number(currentWeather.the_temp).toFixed(2)} °C
+              {(isCelsius
+                ? currentWeather.the_temp
+                : convertCelsiusToFahrenheit(currentWeather.the_temp)
+              ).toFixed(2)}{" "}
+              °C
             </p>
             <p className='display-6 fw-bold'>
               {currentWeather.weather_state_name}
@@ -82,4 +88,5 @@ Time.propTypes = {
   showMenu: PropTypes.bool.isRequired,
   toggleSearchMenu: PropTypes.func.isRequired,
   onChangeLocation: PropTypes.func.isRequired,
+  isCelsius: PropTypes.bool.isRequired,
 };

@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Image } from "react-bootstrap";
 import { imagesMapper } from "../../utils/imagesMapper";
+import convertCelsiusToFahrenheit from "../../utils/convertCelsiusToFahrenheit";
 
-export default function WeatherForecast({ weather }) {
+export default function WeatherForecast({ weather, isCelsius }) {
+  const deg = isCelsius ? "°C" : "°F";
+
   return (
     <div
       className='bg-primary px-3 py-4 mt-4 mx-sm-auto mx-auto mx-lg-1'
@@ -25,9 +28,19 @@ export default function WeatherForecast({ weather }) {
         />
       </div>
       <div className='d-flex justify-content-between px-1'>
-        <span className='fs-6'>{Number(weather.max_temp).toFixed(0)}°C</span>
+        <span className='fs-6'>
+          {(isCelsius
+            ? weather.max_temp
+            : convertCelsiusToFahrenheit(weather.max_temp)
+          ).toFixed(0)}
+          {deg}
+        </span>
         <span className='fs-6 text-secondary'>
-          {Number(weather.min_temp).toFixed(0)}°C
+          {(isCelsius
+            ? weather.min_temp
+            : convertCelsiusToFahrenheit(weather.min_temp)
+          ).toFixed(0)}
+          {deg}
         </span>
       </div>
     </div>
@@ -36,4 +49,5 @@ export default function WeatherForecast({ weather }) {
 
 WeatherForecast.propTypes = {
   weather: PropTypes.object.isRequired,
+  isCelsius: PropTypes.bool.isRequired,
 };

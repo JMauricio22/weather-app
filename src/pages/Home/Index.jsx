@@ -12,6 +12,7 @@ export default function Index() {
   const [data, setData] = useState();
   const [showMenu, setShowMenu] = useState(false);
   const [location, setLocation] = useState(44418);
+  const [isCelsius, setIsCelsius] = useState(true);
 
   useEffect(() => {
     if (loading) {
@@ -52,6 +53,7 @@ export default function Index() {
               showMenu={showMenu}
               toggleSearchMenu={toggleSearchMenu}
               onChangeLocation={onChangeLocation}
+              isCelsius={isCelsius}
             />
           }
           rightComponent={
@@ -60,6 +62,8 @@ export default function Index() {
                 forecast={data.consolidated_weather.filter(
                   (weather, index) => index !== 0
                 )}
+                isCelsius={isCelsius}
+                setIsCelsius={setIsCelsius}
               />
               <Hightlights weather={data.consolidated_weather[0]} />
               <Footer />
