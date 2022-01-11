@@ -7,6 +7,8 @@ import { imagesMapper } from "../../utils/imagesMapper";
 import Menu from "../SearchMenu/Index";
 import DefaultSearchItem from "../DefaultSearchItem/Index";
 import convertCelsiusToFahrenheit from "../../utils/convertCelsiusToFahrenheit";
+import LocationIcon from "../../assets/img/4119656961571662258.svg";
+import { getWoeid } from "../../services/weather";
 
 const defaultCitites = [
   {
@@ -25,6 +27,20 @@ export default function Time({
   onChangeLocation,
   isCelsius,
 }) {
+  const getCurrentPosition = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async ({ coords }) => {
+          const result = await getWoeid(coords);
+          onChangeLocation(result[0].woeid);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  };
+
   return (
     <section className='h-lg-100 position-relative'>
       <Menu showMenu={showMenu} toggleSearchMenu={toggleSearchMenu}>
@@ -38,10 +54,28 @@ export default function Time({
       </Menu>
       <div className='p-3'>
         <Row>
-          <Col xs={12} className='mb-5'>
-            <Button variant='secondary' onClick={toggleSearchMenu}>
-              Search for places
-            </Button>
+          <Col className='mb-5 px-3'>
+            <Row>
+              <Col>
+                <Button variant='secondary' onClick={toggleSearchMenu}>
+                  Search for places
+                </Button>
+              </Col>
+              <Col className='d-flex justify-content-end'>
+                <Button
+                  className='d-flex justify-content-center align-items-center'
+                  onClick={getCurrentPosition}
+                  variant='secondary'
+                  style={{ borderRadius: "50%", width: 40, height: 40 }}
+                >
+                  <img
+                    className='align-middle'
+                    src={LocationIcon}
+                    alt='current-position'
+                  />
+                </Button>
+              </Col>
+            </Row>
           </Col>
           <Col xs={12} className='mb-5'>
             <div className='d-flex justify-content-center'>

@@ -19,10 +19,8 @@ export default function SearchMenu({ showMenu, toggleSearchMenu, children }) {
         <Form>
           <Row className='m-0  p-0'>
             <Col xs={8} md={8} lg={8}>
-              <Form>
-                {/* <FontAwesomeIcon icon={faSearch} /> */}
-                <Form.Control size='lg' type='text' />
-              </Form>
+              {/* <FontAwesomeIcon icon={faSearch} /> */}
+              <Form.Control size='lg' type='text' />
             </Col>
             <Col xs={4} md={4} lg={4}>
               <Button size='lg' variant='warning'>

@@ -36,8 +36,8 @@ export default function Index() {
   };
 
   const onChangeLocation = (woeid) => {
-    setLoading(true);
     setLocation(woeid);
+    setLoading(true);
   };
 
   return (
