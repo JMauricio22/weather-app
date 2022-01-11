@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getLocation } from "../../services/weather";
-import WeatherForecastList from "../../componentes/WeatherForecastList";
-import Hightlights from "../../componentes/Highlights";
-import Weather from "../../componentes/Weather";
-import Footer from "../../componentes/Footer";
-import Container from "../../componentes/Container";
+import Loading from "../../componentes/Loading/Index";
+import WeatherForecastList from "../../componentes/WeatherForecastList/Index";
+import Hightlights from "../../componentes/Highlights/Index";
+import Weather from "../../componentes/Weather/Index";
+import Footer from "../../componentes/Footer/Index";
+import Container from "../../componentes/Container/Index";
 
 export default function Index() {
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,7 @@ export default function Index() {
   return (
     <main className='w-100'>
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <Container
           leftComponent={

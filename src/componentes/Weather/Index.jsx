@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { Button, Image, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { imagesMapper } from "../pages/Home/utils/imagesMapper";
-import Menu from "./SearchMenu/Index";
-import DefaultSearchItem from "./DefaultSearchItem/Index";
+import { imagesMapper } from "../../utils/imagesMapper";
+import Menu from "../SearchMenu/Index";
+import DefaultSearchItem from "../DefaultSearchItem/Index";
 
 const defaultCitites = [
   {

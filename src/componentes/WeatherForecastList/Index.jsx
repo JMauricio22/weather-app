@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
-import WeatherForecast from "./WeatherForecast";
+import WeatherForecast from "../WeatherForecast/Index";
 
 export default function WeatherForecastList({ forecast }) {
   return (
