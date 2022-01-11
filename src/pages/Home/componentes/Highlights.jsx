@@ -1,5 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col, ProgressBar } from "react-bootstrap";
 
 export default function Hightlights({ weather }) {
@@ -18,7 +20,19 @@ export default function Hightlights({ weather }) {
                 <p className='display-2'>
                   {Number(weather.wind_speed).toFixed(2)} mph
                 </p>
-                <p>WSW</p>
+                <p>
+                  <span
+                    className='bg-secondary p-2 rounded-circle me-2 d-inline-flex justify-content-center align-items-center'
+                    style={{ width: 27, height: 27 }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faLocationArrow}
+                      rotation={180}
+                      size='xs'
+                    />
+                  </span>
+                  WSW
+                </p>
               </div>
             </div>
           </Col>
@@ -31,9 +45,12 @@ export default function Hightlights({ weather }) {
               <p className='display-2'>
                 {Number(weather.humidity).toFixed(0)}%
               </p>
-              <div className='mx-auto' style={{ width: 250 }}>
-                <ProgressBar now={weather.humidity} variant='warning' />
-              </div>
+              <ProgressBar
+                now={weather.humidity}
+                variant='warning'
+                className='w-100'
+              />
+              {/* <div className='mx-auto'></div> */}
             </div>
           </Col>
           <Col xs={12} md={6} lg={6}>

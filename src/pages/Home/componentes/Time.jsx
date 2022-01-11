@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Image, Row, Col } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { imagesMapper } from "../utils/imagesMapper";
 
 export default function Time({ currentWeather, title }) {
@@ -35,7 +37,9 @@ export default function Time({ currentWeather, title }) {
               day: "numeric",
             })}{" "}
           </p>
-          <p className='fs-6 text-secondary'>{title}</p>
+          <p className='fs-6 text-secondary'>
+            <FontAwesomeIcon icon={faMapMarkerAlt} /> {title}
+          </p>
         </Col>
       </Row>
     </section>
