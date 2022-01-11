@@ -11,11 +11,7 @@ export default function WeatherForecastList({
 }) {
   return (
     <section className='container pt-lg-1 mb-5'>
-      <Row>
-        <Col xs={{ span: 2, offset: 10 }}>
-          <Temperature isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
-        </Col>
-      </Row>
+      <Temperature isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
       <Row className='justify-content-lg-around'>
         {forecast.map((weather) => (
           <Col

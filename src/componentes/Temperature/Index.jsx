@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 export default function Index({ isCelsius, setIsCelsius }) {
   return (
-    <div className='my-4'>
+    <div className='my-4 d-none d-lg-flex justify-content-end'>
       <Button
         variant={isCelsius ? "light" : "secondary"}
         className='rounded-circle me-2'
