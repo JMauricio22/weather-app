@@ -6,6 +6,7 @@ import Hightlights from "../../componentes/Highlights/Index";
 import Weather from "../../componentes/Weather/Index";
 import Footer from "../../componentes/Footer/Index";
 import Container from "../../componentes/Container/Index";
+import Error from "../../componentes/Error/Index";
 
 export default function Index() {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,7 @@ export default function Index() {
   const [showMenu, setShowMenu] = useState(false);
   const [location, setLocation] = useState(44418);
   const [isCelsius, setIsCelsius] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (loading) {
@@ -26,6 +28,7 @@ export default function Index() {
       setData(resp);
     } catch (error) {
       console.log(error);
+      setError(error);
     } finally {
       setLoading(false);
     }
@@ -36,42 +39,49 @@ export default function Index() {
   };
 
   const onChangeLocation = (woeid) => {
+    setError(null);
     setShowMenu(false);
     setLocation(woeid);
     setLoading(true);
   };
 
+  const onLoading = () => <Loading />;
+
+  const onRender = () => (
+    <Container
+      leftComponent={
+        <Weather
+          currentWeather={data.consolidated_weather[0]}
+          title={data.title}
+          showMenu={showMenu}
+          toggleSearchMenu={toggleSearchMenu}
+          onChangeLocation={onChangeLocation}
+          isCelsius={isCelsius}
+        />
+      }
+      rightComponent={
+        <div className='bg-dark'>
+          <WeatherForecastList
+            forecast={data.consolidated_weather.filter(
+              (weather, index) => index !== 0
+            )}
+            isCelsius={isCelsius}
+            setIsCelsius={setIsCelsius}
+          />
+          <Hightlights weather={data.consolidated_weather[0]} />
+          <Footer />
+        </div>
+      }
+    ></Container>
+  );
+
+  const onError = () => <Error />;
+
   return (
     <main className='w-100'>
-      {loading ? (
-        <Loading />
-      ) : (
-        <Container
-          leftComponent={
-            <Weather
-              currentWeather={data.consolidated_weather[0]}
-              title={data.title}
-              showMenu={showMenu}
-              toggleSearchMenu={toggleSearchMenu}
-              onChangeLocation={onChangeLocation}
-              isCelsius={isCelsius}
-            />
-          }
-          rightComponent={
-            <div className='bg-dark'>
-              <WeatherForecastList
-                forecast={data.consolidated_weather.filter(
-                  (weather, index) => index !== 0
-                )}
-                isCelsius={isCelsius}
-                setIsCelsius={setIsCelsius}
-              />
-              <Hightlights weather={data.consolidated_weather[0]} />
-              <Footer />
-            </div>
-          }
-        ></Container>
-      )}
+      {loading && onLoading()}
+      {!loading && !error && onRender()}
+      {!loading && error && onError()}
     </main>
   );
 }
