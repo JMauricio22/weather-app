@@ -36,6 +36,7 @@ export default function Index() {
   };
 
   const onChangeLocation = (woeid) => {
+    setShowMenu(false);
     setLocation(woeid);
     setLoading(true);
   };

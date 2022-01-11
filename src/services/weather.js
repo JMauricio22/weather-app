@@ -21,3 +21,15 @@ export const getWoeid = async ({ latitude, longitude }) => {
     throw error;
   }
 };
+
+export const searchCity = async (query) => {
+  try {
+    const { data } = await axiosInstance.get(
+      `/location/search/?query=${query}`
+    );
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

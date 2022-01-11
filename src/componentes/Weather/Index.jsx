@@ -8,7 +8,7 @@ import Menu from "../SearchMenu/Index";
 import DefaultSearchItem from "../DefaultSearchItem/Index";
 import convertCelsiusToFahrenheit from "../../utils/convertCelsiusToFahrenheit";
 import LocationIcon from "../../assets/img/4119656961571662258.svg";
-import { getWoeid } from "../../services/weather";
+import { getWoeid, searchCity } from "../../services/weather";
 
 const defaultCitites = [
   {
@@ -36,14 +36,33 @@ export default function Time({
         },
         (error) => {
           console.log(error);
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
         }
       );
     }
   };
 
+  const onSearch = async (query) => {
+    try {
+      const result = await searchCity(query);
+      if (result.length) {
+        onChangeLocation(result[0].woeid);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className='h-lg-100 position-relative'>
-      <Menu showMenu={showMenu} toggleSearchMenu={toggleSearchMenu}>
+      <Menu
+        showMenu={showMenu}
+        toggleSearchMenu={toggleSearchMenu}
+        onSearch={onSearch}
+      >
         {defaultCitites.map((city, index) => (
           <DefaultSearchItem
             city={city.name}
