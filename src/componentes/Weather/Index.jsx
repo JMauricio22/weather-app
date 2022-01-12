@@ -112,7 +112,7 @@ export default function Time({
                 ? currentWeather.the_temp
                 : convertCelsiusToFahrenheit(currentWeather.the_temp)
               ).toFixed(2)}{" "}
-              °C
+              {isCelsius ? "°C" : "°F"}
             </p>
             <p className='display-6 fw-bold'>
               {currentWeather.weather_state_name}
