@@ -12,7 +12,7 @@ export default function Hightlights({ weather }) {
         <Row>
           <Col xs={12} md={6} lg={6}>
             <div
-              className='bg-primary mt-lg-0 p-4 text-center mb-4 d-flex justify-content-center align-items-center flex-column'
+              className='bg-info mt-lg-0 p-4 text-center mb-4 d-flex justify-content-center align-items-center flex-column'
               style={{ height: 264 }}
             >
               <div>
@@ -38,7 +38,7 @@ export default function Hightlights({ weather }) {
           </Col>
           <Col xs={12} md={6} lg={6}>
             <div
-              className='bg-primary p-4 text-center mb-4 d-flex justify-content-center align-items-center flex-column'
+              className='bg-info p-4 text-center mb-4 d-flex justify-content-center align-items-center flex-column'
               style={{ height: 264 }}
             >
               <p className='fs-5 fw-lighter'>Humidity</p>
@@ -54,7 +54,7 @@ export default function Hightlights({ weather }) {
             </div>
           </Col>
           <Col xs={12} md={6} lg={6}>
-            <div className='bg-primary p-4 text-center mb-4 '>
+            <div className='bg-info p-4 text-center mb-4 '>
               <p className='fs-5 fw-lighter'>Visibility</p>
               <p className='display-2'>
                 {Number(weather.visibility).toFixed(0)} miles
@@ -62,7 +62,7 @@ export default function Hightlights({ weather }) {
             </div>
           </Col>
           <Col xs={12} md={6} lg={6}>
-            <div className='bg-primary p-4 text-center mb-4 '>
+            <div className='bg-info p-4 text-center mb-4 '>
               <p className='fs-5 fw-lighter'>Air Presure</p>
               <p className='display-2'>
                 {Number(weather.air_pressure).toFixed(0)} mb

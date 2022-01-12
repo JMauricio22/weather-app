@@ -1,8 +1,9 @@
-$body-color: white ;
-$primary: #1E213A;
-$dark: #100E1D ;
-$body-bg: $primary;
+$body-color: white;
+$info: #1e213a;
+$dark: #100e1d;
+$body-bg: $info;
+$input-focus-border-color: inherit;
 
-$font-family-base: 'Raleway', sans-serif;
+$font-family-base: "Raleway", sans-serif;
 
 @import "~bootstrap/scss/bootstrap";

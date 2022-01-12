@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 
-export default function Container({ leftComponent, rightComponent }) {
+export default function Container({ leftComponent, rightComponent, ...props }) {
   return (
-    <Row className='m-0'>
+    <Row className='m-0' {...props}>
       <Col xs={12} lg={4} md={12} className='p-0'>
         {leftComponent}
       </Col>
@@ -17,5 +17,6 @@ export default function Container({ leftComponent, rightComponent }) {
 
 Container.propTypes = {
   leftComponent: PropTypes.element.isRequired,
-  rightComponent: PropTypes.element.isRequired,
+  rightComponent: PropTypes.element,
+  props: PropTypes.object,
 };

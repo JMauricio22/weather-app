@@ -9,7 +9,7 @@ export default function WeatherForecast({ weather, isCelsius }) {
 
   return (
     <div
-      className='bg-primary px-3 py-4 mt-4 mx-sm-auto mx-auto mx-lg-1'
+      className='bg-info px-3 py-4 mt-4 mx-sm-auto mx-auto mx-lg-1'
       style={{ width: 120 }}
     >
       <p className='text-center fs-6'>
